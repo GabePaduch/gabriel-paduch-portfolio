@@ -36,6 +36,27 @@ const About: React.FC = () => {
 
           <div className="lg:col-span-2">
             <h3 className="text-2xl font-semibold text-white mb-8">Skills Técnicas</h3>
+            <div className="max-h-[800px] overflow-y-auto pr-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {skills.map((skill, index) => (
+                  <div
+                    key={skill.category}
+                    className="bg-dark-800 p-6 rounded-lg border border-gray-700 hover:border-primary-500/50 transition-all duration-300"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <h4 className="text-primary-500 font-semibold mb-3 text-lg">
+                      {skill.category}
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {skill.items.map((item) => (
+                        <span
+                          key={item}
+                          className="bg-dark-700 text-gray-300 px-3 py-1 rounded-full text-sm hover:bg-primary-500/20 hover:text-primary-400 transition-colors"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {skills.map((skill, index) => (
                 <div 
@@ -56,8 +77,8 @@ const About: React.FC = () => {
                       </span>
                     ))}
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>

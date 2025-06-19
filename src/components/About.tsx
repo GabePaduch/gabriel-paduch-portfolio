@@ -12,8 +12,8 @@ const About: React.FC = () => {
           <div className="w-24 h-1 bg-primary-500 mx-auto"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-6">
+        <div className="grid lg:grid-cols-5 gap-16 items-start">
+          <div className="space-y-6 lg:col-span-3">
             <h3 className="text-2xl font-semibold text-white mb-6">Quem sou eu</h3>
             <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
               <p>
@@ -34,30 +34,32 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <div>
+          <div className="lg:col-span-2">
             <h3 className="text-2xl font-semibold text-white mb-8">Skills Técnicas</h3>
-            <div className="grid gap-6">
-              {skills.map((skill, index) => (
-                <div 
-                  key={skill.category} 
-                  className="bg-dark-800 p-6 rounded-lg border border-gray-700 hover:border-primary-500/50 transition-all duration-300"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <h4 className="text-primary-500 font-semibold mb-3 text-lg">
-                    {skill.category}
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {skill.items.map((item) => (
-                      <span
-                        key={item}
-                        className="bg-dark-700 text-gray-300 px-3 py-1 rounded-full text-sm hover:bg-primary-500/20 hover:text-primary-400 transition-colors"
-                      >
-                        {item}
-                      </span>
-                    ))}
+            <div className="max-h-[800px] overflow-y-auto pr-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {skills.map((skill, index) => (
+                  <div
+                    key={skill.category}
+                    className="bg-dark-800 p-6 rounded-lg border border-gray-700 hover:border-primary-500/50 transition-all duration-300"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <h4 className="text-primary-500 font-semibold mb-3 text-lg">
+                      {skill.category}
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {skill.items.map((item) => (
+                        <span
+                          key={item}
+                          className="bg-dark-700 text-gray-300 px-3 py-1 rounded-full text-sm hover:bg-primary-500/20 hover:text-primary-400 transition-colors"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>

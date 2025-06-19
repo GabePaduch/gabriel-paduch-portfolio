@@ -12,8 +12,8 @@ const About: React.FC = () => {
           <div className="w-24 h-1 bg-primary-500 mx-auto"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-6">
+        <div className="grid lg:grid-cols-5 gap-16 items-start">
+          <div className="space-y-6 lg:col-span-3">
             <h3 className="text-2xl font-semibold text-white mb-6">Quem sou eu</h3>
             <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
               <p>
@@ -34,9 +34,9 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <div>
+          <div className="lg:col-span-2">
             <h3 className="text-2xl font-semibold text-white mb-8">Skills Técnicas</h3>
-            <div className="grid gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {skills.map((skill, index) => (
                 <div 
                   key={skill.category} 

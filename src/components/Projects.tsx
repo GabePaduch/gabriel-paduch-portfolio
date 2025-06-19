@@ -1,23 +1,30 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { projects } from '../data/projects';
+import { projectsEn } from '../data/projects-en';
+import { useLang, useTranslation } from '../i18n';
 
 const Projects: React.FC = () => {
+  const { lang } = useLang();
+  const { t } = useTranslation();
+  const list = lang === 'pt' ? projects : projectsEn;
+
   return (
     <section id="projects" className="bg-dark-950 section-padding px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Meus <span className="text-primary-500">Projetos</span>
+            {t('projects.title').split(' ')[0]}{' '}
+            <span className="text-primary-500">{t('projects.title').split(' ')[1]}</span>
           </h2>
           <div className="w-24 h-1 bg-primary-500 mx-auto mb-4"></div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Soluções práticas e escaláveis que transformam ideias em resultados reais.
+            {t('projects.tagline')}
           </p>
         </div>
 
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
+          {list.map((project, index) => (
             <div
               key={project.id}
               className="bg-dark-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-primary-500/50 transition-all duration-300 shadow-lg hover:shadow-primary-500/10 flex flex-col"
@@ -62,7 +69,7 @@ const Projects: React.FC = () => {
                     className="inline-flex items-center gap-2 text-gray-400 hover:text-primary-500 transition-colors text-sm font-medium"
                   >
                     <ExternalLink size={18} />
-                    Saiba Mais
+                    {t('projects.moreInfo')}
                   </a>
                 </div>
               </div>

@@ -1,23 +1,29 @@
 import React from 'react';
 import { Quote } from 'lucide-react';
 import { testimonials } from '../data/testimonials';
+import { testimonialsEn } from '../data/testimonials-en';
+import { useLang, useTranslation } from '../i18n';
 
 const Testimonials: React.FC = () => {
+  const { lang } = useLang();
+  const { t } = useTranslation();
+  const list = lang === 'pt' ? testimonials : testimonialsEn;
   return (
     <section id="testimonials" className="bg-dark-900 section-padding">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            O que dizem sobre <span className="text-primary-500">meu trabalho</span>
+            {t('testimonials.title').split(' ')[0]}{' '}
+            <span className="text-primary-500">{t('testimonials.title').split(' ')[1]}</span>
           </h2>
           <div className="w-24 h-1 bg-primary-500 mx-auto mb-6"></div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Resultados reais que falam por si só
+            {t('testimonials.tagline')}
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+          {list.map((testimonial, index) => (
             <div
               key={testimonial.id}
               className="bg-dark-800 p-8 rounded-lg border border-gray-700 hover:border-primary-500/50 transition-all duration-300 card-hover"
@@ -25,9 +31,7 @@ const Testimonials: React.FC = () => {
             >
               <div className="mb-6">
                 <Quote className="text-primary-500 mb-4" size={32} />
-                <p className="text-gray-300 text-lg leading-relaxed italic">
-                  "{testimonial.feedback}"
-                </p>
+                <p className="text-gray-300 text-lg leading-relaxed italic">"{testimonial.feedback}"</p>
               </div>
               
               <div className="border-t border-gray-700 pt-6">
@@ -47,7 +51,7 @@ const Testimonials: React.FC = () => {
         <div className="text-center mt-12">
           <div className="inline-block bg-dark-800 rounded-lg p-6 border border-gray-700">
             <p className="text-primary-400 font-medium text-lg italic">
-              "Tecnologia prática, resultado real."
+              {t('testimonials.quote')}
             </p>
           </div>
         </div>

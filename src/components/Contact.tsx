@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Mail, Phone, Github, Linkedin, Send, MapPin } from 'lucide-react';
 import { ContactForm } from '../types';
+import { useTranslation } from '../i18n';
 
 const Contact: React.FC = () => {
+  const { t } = useTranslation();
+
   const [formData, setFormData] = useState<ContactForm>({
     name: '',
     email: '',
@@ -14,12 +17,12 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
       setFormData({ name: '', email: '', message: '' });
-      alert('Mensagem enviada com sucesso! Retornarei em breve.');
+      alert(t('contact.successAlert'));
     }, 1000);
   };
 
@@ -35,11 +38,12 @@ const Contact: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Vamos <span className="text-primary-500">Conversar</span>
+            {t('contact.title').split(' ')[0]}{' '}
+            <span className="text-primary-500">{t('contact.title').split(' ')[1]}</span>
           </h2>
           <div className="w-24 h-1 bg-primary-500 mx-auto mb-6"></div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Tem um projeto em mente? Vamos transformar sua ideia em realidade.
+            {t('contact.tagline')}
           </p>
         </div>
 
@@ -48,22 +52,22 @@ const Contact: React.FC = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-semibold text-white mb-6">
-                Entre em Contato
+                {t('contact.getInTouch')}
               </h3>
               <p className="text-gray-400 text-lg mb-8">
-                Estou sempre aberto para discutir novos projetos, ideias criativas 
-                ou oportunidades de fazer parte da sua equipe.
+                {t('contact.info')}
               </p>
             </div>
 
             <div className="space-y-6">
+              {/* Email */}
               <div className="flex items-center gap-4">
                 <div className="bg-primary-500/20 p-3 rounded-lg">
                   <Mail className="text-primary-500" size={24} />
                 </div>
                 <div>
                   <h4 className="text-white font-semibold">Email</h4>
-                  <a 
+                  <a
                     href="mailto:gabriel.paduch@hotmail.com"
                     className="text-gray-400 hover:text-primary-500 transition-colors"
                   >
@@ -72,13 +76,14 @@ const Contact: React.FC = () => {
                 </div>
               </div>
 
+              {/* WhatsApp */}
               <div className="flex items-center gap-4">
                 <div className="bg-primary-500/20 p-3 rounded-lg">
                   <Phone className="text-primary-500" size={24} />
                 </div>
                 <div>
                   <h4 className="text-white font-semibold">WhatsApp</h4>
-                  <a 
+                  <a
                     href="https://wa.me/5547996118970"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -89,6 +94,7 @@ const Contact: React.FC = () => {
                 </div>
               </div>
 
+              {/* Localização */}
               <div className="flex items-center gap-4">
                 <div className="bg-primary-500/20 p-3 rounded-lg">
                   <MapPin className="text-primary-500" size={24} />
@@ -100,8 +106,9 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
+            {/* Redes Sociais */}
             <div className="pt-8">
-              <h4 className="text-white font-semibold mb-4">Me siga nas redes</h4>
+              <h4 className="text-white font-semibold mb-4">{t('contact.follow')}</h4>
               <div className="flex gap-4">
                 <a
                   href="https://github.com/gabepaduch"
@@ -128,7 +135,7 @@ const Contact: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-white font-medium mb-2">
-                  Nome
+                  {t('contact.name')}
                 </label>
                 <input
                   type="text"
@@ -138,13 +145,13 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 transition-colors"
-                  placeholder="Seu nome completo"
+                  placeholder={t('contact.namePlaceholder')}
                 />
               </div>
 
               <div>
                 <label htmlFor="email" className="block text-white font-medium mb-2">
-                  Email
+                  {t('contact.email')}
                 </label>
                 <input
                   type="email"
@@ -154,13 +161,13 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 transition-colors"
-                  placeholder="seu@email.com"
+                  placeholder={t('contact.emailPlaceholder')}
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-white font-medium mb-2">
-                  Mensagem
+                  {t('contact.message')}
                 </label>
                 <textarea
                   id="message"
@@ -170,7 +177,7 @@ const Contact: React.FC = () => {
                   required
                   rows={5}
                   className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 transition-colors resize-none"
-                  placeholder="Conte-me sobre seu projeto ou dúvida..."
+                  placeholder={t('contact.messagePlaceholder')}
                 />
               </div>
 
@@ -184,7 +191,7 @@ const Contact: React.FC = () => {
                 ) : (
                   <>
                     <Send size={20} />
-                    Enviar Mensagem
+                    {t('contact.send')}
                   </>
                 )}
               </button>

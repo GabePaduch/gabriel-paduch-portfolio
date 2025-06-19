@@ -1,13 +1,17 @@
 import React from 'react';
 import { skills } from '../data/skills';
+import { useTranslation } from '../i18n';
 
 const About: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="about" className="bg-dark-900 section-padding px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Sobre <span className="text-primary-500">Mim</span>
+            {t('about.title').split(' ')[0]}{' '}
+            <span className="text-primary-500">{t('about.title').split(' ')[1]}</span>
           </h2>
           <div className="w-24 h-1 bg-primary-500 mx-auto"></div>
         </div>
@@ -16,22 +20,14 @@ const About: React.FC = () => {
           {/* Texto - Quem sou eu */}
           <div className="space-y-8">
             <h3 className="text-3xl md:text-4xl font-bold text-primary-500 mb-4">
-              Quem sou eu
+              {t('about.subtitle')}
             </h3>
             <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
-              <p>
-                Sou apaixonado por resolver problemas através da tecnologia. Tenho experiência 
-                sólida em desenvolvimento backend com Python, FastAPI e Flask, além de integração 
-                com APIs, automações com N8N, infraestrutura com Docker e Kubernetes e projetos 
-                de IA aplicada a negócios.
-              </p>
-              <p>
-                Sou direto, prático e tenho uma abordagem "mão na massa". Não fico só no código: 
-                entendo a dor do cliente, crio a solução e acompanho até a entrega final.
-              </p>
+              <p>{t('about.p1')}</p>
+              <p>{t('about.p2')}</p>
               <div className="pt-4">
                 <blockquote className="text-primary-400 font-medium text-xl italic">
-                  "Sem enrolação. Aqui a solução é direta."
+                  {t('about.quote')}
                 </blockquote>
               </div>
             </div>
@@ -39,7 +35,9 @@ const About: React.FC = () => {
 
           {/* Skills Técnicas */}
           <div>
-            <h3 className="text-2xl font-semibold text-white mb-6">Skills Técnicas</h3>
+            <h3 className="text-2xl font-semibold text-white mb-6">
+              {t('about.skillsTitle')}
+            </h3>
             <div className="grid sm:grid-cols-2 gap-4">
               {skills.map((skill, index) => (
                 <div
@@ -48,7 +46,7 @@ const About: React.FC = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <h4 className="text-primary-500 font-semibold mb-2 text-base">
-                    {skill.category}
+                    {t(`skills.${skill.category}`)}
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {skill.items.map((item) => (

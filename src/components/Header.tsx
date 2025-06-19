@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import { useLang, useTranslation } from '../i18n';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { lang, setLang } = useLang();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,11 +26,14 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-dark-950/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
-    }`}>
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-dark-950/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+      }`}
+    >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
+          {/* Logo + Nome */}
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">GP</span>
@@ -37,11 +43,27 @@ const Header: React.FC = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-primary-500 transition-colors">Home</button>
-            <button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-primary-500 transition-colors">Sobre</button>
-            <button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-primary-500 transition-colors">Projetos</button>
-            <button onClick={() => scrollToSection('testimonials')} className="text-gray-300 hover:text-primary-500 transition-colors">Depoimentos</button>
-            <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-primary-500 transition-colors">Contato</button>
+            <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-primary-500 transition-colors">
+              {t('header.home')}
+            </button>
+            <button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-primary-500 transition-colors">
+              {t('header.about')}
+            </button>
+            <button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-primary-500 transition-colors">
+              {t('header.projects')}
+            </button>
+            <button onClick={() => scrollToSection('testimonials')} className="text-gray-300 hover:text-primary-500 transition-colors">
+              {t('header.testimonials')}
+            </button>
+            <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-primary-500 transition-colors">
+              {t('header.contact')}
+            </button>
+            <button
+              onClick={() => setLang(lang === 'pt' ? 'en' : 'pt')}
+              className="text-gray-300 hover:text-primary-500 transition-colors"
+            >
+              {lang === 'pt' ? 'EN' : 'PT'}
+            </button>
           </div>
 
           {/* Social Links Desktop */}
@@ -83,11 +105,27 @@ const Header: React.FC = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-dark-900/95 backdrop-blur-sm rounded-lg mt-2 p-4">
             <div className="flex flex-col space-y-4">
-              <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">Home</button>
-              <button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">Sobre</button>
-              <button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">Projetos</button>
-              <button onClick={() => scrollToSection('testimonials')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">Depoimentos</button>
-              <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">Contato</button>
+              <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">
+                {t('header.home')}
+              </button>
+              <button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">
+                {t('header.about')}
+              </button>
+              <button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">
+                {t('header.projects')}
+              </button>
+              <button onClick={() => scrollToSection('testimonials')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">
+                {t('header.testimonials')}
+              </button>
+              <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">
+                {t('header.contact')}
+              </button>
+              <button
+                onClick={() => setLang(lang === 'pt' ? 'en' : 'pt')}
+                className="text-gray-300 hover:text-primary-500 transition-colors text-left"
+              >
+                {lang === 'pt' ? 'EN' : 'PT'}
+              </button>
 
               <div className="flex space-x-4 pt-4 border-t border-gray-700">
                 <a

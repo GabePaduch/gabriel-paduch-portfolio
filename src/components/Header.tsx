@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import { useLang, useTranslation } from '../i18n';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { lang, setLang } = useLang();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,35 +40,41 @@ const Header: React.FC = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <button 
+            <button
               onClick={() => scrollToSection('home')}
               className="text-gray-300 hover:text-primary-500 transition-colors"
             >
-              Home
+              {t('header.home')}
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('about')}
               className="text-gray-300 hover:text-primary-500 transition-colors"
             >
-              Sobre
+              {t('header.about')}
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('projects')}
               className="text-gray-300 hover:text-primary-500 transition-colors"
             >
-              Projetos
+              {t('header.projects')}
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('testimonials')}
               className="text-gray-300 hover:text-primary-500 transition-colors"
             >
-              Depoimentos
+              {t('header.testimonials')}
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('contact')}
               className="text-gray-300 hover:text-primary-500 transition-colors"
             >
-              Contato
+              {t('header.contact')}
+            </button>
+            <button
+              onClick={() => setLang(lang === 'pt' ? 'en' : 'pt')}
+              className="text-gray-300 hover:text-primary-500 transition-colors"
+            >
+              {lang === 'pt' ? 'EN' : 'PT'}
             </button>
           </div>
 
@@ -108,35 +117,41 @@ const Header: React.FC = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-dark-900/95 backdrop-blur-sm rounded-lg mt-2 p-4">
             <div className="flex flex-col space-y-4">
-              <button 
+              <button
                 onClick={() => scrollToSection('home')}
                 className="text-gray-300 hover:text-primary-500 transition-colors text-left"
               >
-                Home
+                {t('header.home')}
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('about')}
                 className="text-gray-300 hover:text-primary-500 transition-colors text-left"
               >
-                Sobre
+                {t('header.about')}
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('projects')}
                 className="text-gray-300 hover:text-primary-500 transition-colors text-left"
               >
-                Projetos
+                {t('header.projects')}
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('testimonials')}
                 className="text-gray-300 hover:text-primary-500 transition-colors text-left"
               >
-                Depoimentos
+                {t('header.testimonials')}
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('contact')}
                 className="text-gray-300 hover:text-primary-500 transition-colors text-left"
               >
-                Contato
+                {t('header.contact')}
+              </button>
+              <button
+                onClick={() => setLang(lang === 'pt' ? 'en' : 'pt')}
+                className="text-gray-300 hover:text-primary-500 transition-colors text-left"
+              >
+                {lang === 'pt' ? 'EN' : 'PT'}
               </button>
               <div className="flex space-x-4 pt-4 border-t border-gray-700">
                 <a

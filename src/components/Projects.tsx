@@ -1,23 +1,29 @@
 import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import { projects } from '../data/projects';
+import { projectsEn } from '../data/projects-en';
+import { useLang, useTranslation } from '../i18n';
 
 const Projects: React.FC = () => {
+  const { lang } = useLang();
+  const { t } = useTranslation();
+  const list = lang === 'pt' ? projects : projectsEn;
   return (
     <section id="projects" className="bg-dark-950 section-padding">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Meus <span className="text-primary-500">Projetos</span>
+            {t('projects.title').split(' ')[0]}{' '}
+            <span className="text-primary-500">{t('projects.title').split(' ')[1]}</span>
           </h2>
           <div className="w-24 h-1 bg-primary-500 mx-auto mb-6"></div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Soluções práticas e escaláveis que transformam ideias em resultados reais
+            {t('projects.tagline')}
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {list.map((project, index) => (
             <div
               key={project.id}
               className="bg-dark-800 rounded-lg overflow-hidden border border-gray-700 card-hover"
@@ -62,7 +68,7 @@ const Projects: React.FC = () => {
                       className="flex items-center gap-2 text-gray-400 hover:text-primary-500 transition-colors"
                     >
                       <Github size={18} />
-                      <span className="text-sm">Código</span>
+                      <span className="text-sm">{t('projects.code')}</span>
                     </a>
                   )}
                   
@@ -74,7 +80,7 @@ const Projects: React.FC = () => {
                       className="flex items-center gap-2 text-gray-400 hover:text-primary-500 transition-colors"
                     >
                       <ExternalLink size={18} />
-                      <span className="text-sm">Demo</span>
+                      <span className="text-sm">{t('projects.demo')}</span>
                     </a>
                   )}
                 </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail, Download, ArrowRight } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, ArrowRight, Phone } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
@@ -14,22 +14,21 @@ const Hero: React.FC = () => {
       <div className="max-w-7xl mx-auto w-full">
         <div className="max-w-4xl">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
-            🚀 Construindo Soluções em{' '}
+            🚀 Soluções Inteligentes em{' '}
             <span className="text-primary-500">IA, APIs, Automação</span>{' '}
             e Cloud
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-slide-up">
-            Especialista em desenvolvimento backend, integrações, infraestrutura e 
-            soluções sob medida para negócios digitais.
+            Backend robusto, integrações eficientes e infraestrutura escalável. Tecnologia feita para resolver.
           </p>
           
           <div className="mb-12 animate-slide-up" style={{ animationDelay: '0.2s' }}>
             <p className="text-lg text-gray-400 leading-relaxed max-w-3xl">
-              Sou Gabriel Paduch, especialista em desenvolvimento de APIs, automação de processos, 
-              integração de sistemas e infraestrutura cloud. Trabalho com Python, FastAPI, Flask, 
-              Docker, PostgreSQL, N8N, Kubernetes e outras stacks modernas. Ajudo empresas a 
-              transformar ideias em soluções práticas e escaláveis.
+              Sou Gabriel Paduch, especialista em desenvolvimento de APIs, automação de processos e infraestrutura cloud.  
+              Minha missão é simples: entregar soluções diretas, rápidas e que realmente funcionem.  
+              Trabalho com Python, FastAPI, Flask, Docker, PostgreSQL, N8N, Kubernetes e outras stacks modernas.  
+              De integrações a sistemas de IA, o foco é sempre um: resultado.
             </p>
           </div>
 
@@ -50,7 +49,7 @@ const Hero: React.FC = () => {
 
           <div className="flex gap-6 animate-slide-up" style={{ animationDelay: '0.6s' }}>
             <a
-              href="https://github.com"
+              href="https://github.com/gabepaduch"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-primary-500 transition-colors p-2"
@@ -58,7 +57,7 @@ const Hero: React.FC = () => {
               <Github size={28} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://br.linkedin.com/in/gabriel-cavalli-paduch"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-primary-500 transition-colors p-2"
@@ -66,10 +65,18 @@ const Hero: React.FC = () => {
               <Linkedin size={28} />
             </a>
             <a
-              href="mailto:contato@volvix.com.br"
+              href="mailto:gabriel.paduch@hotmail.com"
               className="text-gray-400 hover:text-primary-500 transition-colors p-2"
             >
               <Mail size={28} />
+            </a>
+            <a
+              href="https://wa.me/5547996118970"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-primary-500 transition-colors p-2"
+            >
+              <Phone size={28} />
             </a>
           </div>
         </div>

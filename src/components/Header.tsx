@@ -9,7 +9,7 @@ const Header: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -37,42 +37,17 @@ const Header: React.FC = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => scrollToSection('home')}
-              className="text-gray-300 hover:text-primary-500 transition-colors"
-            >
-              Home
-            </button>
-            <button 
-              onClick={() => scrollToSection('about')}
-              className="text-gray-300 hover:text-primary-500 transition-colors"
-            >
-              Sobre
-            </button>
-            <button 
-              onClick={() => scrollToSection('projects')}
-              className="text-gray-300 hover:text-primary-500 transition-colors"
-            >
-              Projetos
-            </button>
-            <button 
-              onClick={() => scrollToSection('testimonials')}
-              className="text-gray-300 hover:text-primary-500 transition-colors"
-            >
-              Depoimentos
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="text-gray-300 hover:text-primary-500 transition-colors"
-            >
-              Contato
-            </button>
+            <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-primary-500 transition-colors">Home</button>
+            <button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-primary-500 transition-colors">Sobre</button>
+            <button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-primary-500 transition-colors">Projetos</button>
+            <button onClick={() => scrollToSection('testimonials')} className="text-gray-300 hover:text-primary-500 transition-colors">Depoimentos</button>
+            <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-primary-500 transition-colors">Contato</button>
           </div>
 
-          {/* Social Links */}
+          {/* Social Links Desktop */}
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="https://github.com"
+              href="https://github.com/gabepaduch"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-primary-500 transition-colors"
@@ -80,7 +55,7 @@ const Header: React.FC = () => {
               <Github size={20} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://br.linkedin.com/in/gabriel-cavalli-paduch"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-primary-500 transition-colors"
@@ -88,7 +63,7 @@ const Header: React.FC = () => {
               <Linkedin size={20} />
             </a>
             <a
-              href="mailto:contato@volvix.com.br"
+              href="mailto:gabriel.paduch@hotmail.com"
               className="text-gray-300 hover:text-primary-500 transition-colors"
             >
               <Mail size={20} />
@@ -108,39 +83,15 @@ const Header: React.FC = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-dark-900/95 backdrop-blur-sm rounded-lg mt-2 p-4">
             <div className="flex flex-col space-y-4">
-              <button 
-                onClick={() => scrollToSection('home')}
-                className="text-gray-300 hover:text-primary-500 transition-colors text-left"
-              >
-                Home
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="text-gray-300 hover:text-primary-500 transition-colors text-left"
-              >
-                Sobre
-              </button>
-              <button 
-                onClick={() => scrollToSection('projects')}
-                className="text-gray-300 hover:text-primary-500 transition-colors text-left"
-              >
-                Projetos
-              </button>
-              <button 
-                onClick={() => scrollToSection('testimonials')}
-                className="text-gray-300 hover:text-primary-500 transition-colors text-left"
-              >
-                Depoimentos
-              </button>
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="text-gray-300 hover:text-primary-500 transition-colors text-left"
-              >
-                Contato
-              </button>
+              <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">Home</button>
+              <button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">Sobre</button>
+              <button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">Projetos</button>
+              <button onClick={() => scrollToSection('testimonials')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">Depoimentos</button>
+              <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">Contato</button>
+
               <div className="flex space-x-4 pt-4 border-t border-gray-700">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/gabepaduch"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-primary-500 transition-colors"
@@ -148,7 +99,7 @@ const Header: React.FC = () => {
                   <Github size={20} />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://br.linkedin.com/in/gabriel-cavalli-paduch"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-primary-500 transition-colors"
@@ -156,7 +107,7 @@ const Header: React.FC = () => {
                   <Linkedin size={20} />
                 </a>
                 <a
-                  href="mailto:contato@volvix.com.br"
+                  href="mailto:gabriel.paduch@hotmail.com"
                   className="text-gray-300 hover:text-primary-500 transition-colors"
                 >
                   <Mail size={20} />

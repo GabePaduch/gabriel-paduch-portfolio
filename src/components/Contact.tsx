@@ -39,7 +39,7 @@ const Contact: React.FC = () => {
           </h2>
           <div className="w-24 h-1 bg-primary-500 mx-auto mb-6"></div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Tem um projeto em mente? Vamos transformar sua ideia em realidade
+            Tem um projeto em mente? Vamos transformar sua ideia em realidade.
           </p>
         </div>
 
@@ -64,10 +64,10 @@ const Contact: React.FC = () => {
                 <div>
                   <h4 className="text-white font-semibold">Email</h4>
                   <a 
-                    href="mailto:contato@volvix.com.br"
+                    href="mailto:gabriel.paduch@hotmail.com"
                     className="text-gray-400 hover:text-primary-500 transition-colors"
                   >
-                    contato@volvix.com.br
+                    gabriel.paduch@hotmail.com
                   </a>
                 </div>
               </div>
@@ -79,12 +79,12 @@ const Contact: React.FC = () => {
                 <div>
                   <h4 className="text-white font-semibold">WhatsApp</h4>
                   <a 
-                    href="https://wa.me/5511999999999"
+                    href="https://wa.me/5547996118970"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-400 hover:text-primary-500 transition-colors"
                   >
-                    Enviar mensagem
+                    +55 47 9 9611-8970
                   </a>
                 </div>
               </div>
@@ -95,7 +95,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-semibold">Localização</h4>
-                  <p className="text-gray-400">São Paulo, Brasil</p>
+                  <p className="text-gray-400">Balneário Camboriú, SC - Brasil</p>
                 </div>
               </div>
             </div>
@@ -104,7 +104,7 @@ const Contact: React.FC = () => {
               <h4 className="text-white font-semibold mb-4">Me siga nas redes</h4>
               <div className="flex gap-4">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/gabepaduch"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-dark-800 p-3 rounded-lg border border-gray-700 hover:border-primary-500 hover:bg-primary-500/10 transition-all duration-300"
@@ -112,7 +112,7 @@ const Contact: React.FC = () => {
                   <Github className="text-gray-400 hover:text-primary-500 transition-colors" size={24} />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://br.linkedin.com/in/gabriel-cavalli-paduch"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-dark-800 p-3 rounded-lg border border-gray-700 hover:border-primary-500 hover:bg-primary-500/10 transition-all duration-300"

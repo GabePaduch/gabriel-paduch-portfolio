@@ -19,11 +19,11 @@ export const projects: Project[] = [
   },
   {
     id: '3',
-    title: 'Plataforma de Instâncias API',
-    description: 'Gerenciamento de múltiplas instâncias API para clientes, usando Docker, PostgreSQL e autenticação por token.',
-    technologies: ['Python', 'Docker', 'PostgreSQL', 'JWT', 'Redis', 'Traefik'],
+    title: 'Sistema de RAG com PostgreSQL e OpenAI',
+    description: 'Projeto de RAG (Retrieval-Augmented Generation) usando PostgreSQL para armazenamento de embeddings, OpenAI para geração e FastAPI como backend.',
+    technologies: ['Python', 'FastAPI', 'PostgreSQL', 'OpenAI API', 'LangChain'],
     githubUrl: '#',
-    imageUrl: 'https://images.pexels.com/photos/8849295/pexels-photo-8849295.jpeg?auto=compress&cs=tinysrgb&w=800'
+    imageUrl: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800'
   },
   {
     id: '4',
@@ -47,6 +47,6 @@ export const projects: Project[] = [
     description: 'Fluxos automatizados de atendimento WhatsApp integrados com o Dify e PostgreSQL para automação comercial.',
     technologies: ['N8N', 'Python', 'WhatsApp API', 'PostgreSQL', 'Dify', 'Webhooks'],
     githubUrl: '#',
-    imageUrl: 'https://images.pexels.com/photos/8849295/pexels-photo-8849295.jpeg?auto=compress&cs=tinysrgb&w=800'
+    imageUrl: 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800'
   }
 ];

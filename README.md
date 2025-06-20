@@ -1,74 +1,72 @@
 # paduch.dev
 
-Este repositório contém o código fonte do meu portfólio pessoal. O site foi construído em React + TypeScript utilizando Vite para o build e Tailwind CSS para estilização.
+Este repositório reúne o código fonte do meu portfólio pessoal. A aplicação foi construída em **React** com **TypeScript**, utilizando **Vite** para o build e **Tailwind CSS** para a interface visual.
 
-## Sobre o Projeto
+## Visão Geral
 
-O objetivo é apresentar de forma objetiva minhas principais habilidades, projetos e depoimentos de clientes. O aplicativo é dividido em seções que podem ser acessadas através do menu de navegação:
+O site apresenta minhas principais habilidades, projetos e depoimentos de clientes. Também conta com uma página dedicada ao currículo, que pode ser exportado em PDF nos idiomas português e inglês.
 
-- **Hero** – apresenta um resumo sobre minhas áreas de atuação e um link para download do CV.
-- **Sobre** – traz informações gerais e uma lista de skills técnicas agrupadas por categoria.
-- **Projetos** – mostra alguns trabalhos relevantes, exibindo descrição, tecnologias utilizadas e links.
-- **Depoimentos** – feedback de clientes sobre as soluções entregues.
-- **Contato** – informações para entrar em contato e formulário para envio de mensagens.
+As seções são acessadas pelo menu de navegação:
 
-Os textos e listas exibidos nessas seções estão em `src/data` e podem ser facilmente alterados.
+- **Hero** – resumo das áreas de atuação e link para o currículo.
+- **Sobre** – informações gerais e lista de skills agrupadas.
+- **Projetos** – trabalhos relevantes com descrição e tecnologias utilizadas.
+- **Depoimentos** – feedback de clientes.
+- **Contato** – formulário para envio de mensagens.
+- **Currículo** – rota `/cv` com versão em tela e `/cv-pdf` ou `/cv-pdf-en` para impressão.
 
-## Tecnologias Principais
+Todo o conteúdo dessas seções está em `src/data` e pode ser facilmente alterado.
+
+## Tecnologias e Bibliotecas
 
 - [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/) para desenvolvimento e build
-- [Tailwind CSS](https://tailwindcss.com/) para estilização
+- [Tailwind CSS](https://tailwindcss.com/) para estilos
+- [React Router](https://reactrouter.com/) para as rotas
+- [Framer Motion](https://www.framer.com/motion/) para animações
+- [html2pdf.js](https://github.com/eKoopmans/html2pdf.js/) para geração do PDF do currículo
 - [Lucide](https://lucide.dev/) para ícones
 
 ## Estrutura de Pastas
 
-```
+```text
 src/
 ├── components/   # componentes React reutilizáveis
-├── data/         # listas de projetos, skills e depoimentos
-├── types/        # definições TypeScript compartilhadas
-├── index.css     # estilos globais e utilidades do Tailwind
-├── main.tsx      # ponto de entrada da aplicação
+├── data/         # projetos, skills, depoimentos e CV
+├── images/       # imagens usadas no site
+├── types/        # definições TypeScript
+├── i18n.tsx      # contexto de internacionalização (pt/en)
+├── index.css     # estilos globais
+├── main.tsx      # ponto de entrada
 └── App.tsx       # layout principal
 ```
 
-## Comandos
+## Instalação e Uso
 
-Instale as dependências e rode o projeto em modo de desenvolvimento:
+1. Instale as dependências:
+   ```bash
+   npm install
+   ```
+2. Inicie o modo de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
 
-```bash
-npm install
-npm run dev
-```
+### Scripts Disponíveis
 
-Para gerar o build de produção:
+- `npm run build` – gera o bundle de produção em `dist/`.
+- `npm run preview` – serve o bundle gerado localmente.
+- `npm run lint` – executa o ESLint para verificar problemas.
 
-```bash
-npm run build
-```
+## Personalização
 
-Você também pode verificar o bundle gerado localmente com:
+- Ajuste cores e temas em `tailwind.config.js`.
+- Modifique textos e listas em `src/data`.
+- A troca de idioma é controlada pelo `LangProvider` em `src/i18n.tsx`.
 
-```bash
-npm run preview
-```
+## Contribuição
 
-Para checar problemas de estilo ou possíveis erros de código:
-
-```bash
-npm run lint
-```
-
-## Configuração
-
-- Os estilos personalizados estão definidos em `tailwind.config.js`.
-- O comportamento do Vite está em `vite.config.ts`.
-- Configurações de lint no arquivo `eslint.config.js`.
-
-## Como Contribuir
-
-Este repositório tem fins de portfólio e não há planos de aceitar contribuições externas. Sinta-se livre para explorar o código e utilizar trechos como referência em seus projetos.
+Este projeto é parte do meu portfólio e não recebe contribuições externas. Fique à vontade para estudar o código e utilizar o que for útil em seus próprios projetos.
 
 ---
 

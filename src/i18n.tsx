@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { cv as cv_pt } from './data/cv';
+import { cv as cv_en } from './data/cv-en';
 
 export type Lang = 'pt' | 'en';
 
@@ -39,7 +41,7 @@ const translations = {
       paragraph:
         'Sou Gabriel Paduch, especialista em desenvolvimento de APIs, automação de processos, integração de sistemas e infraestrutura cloud. Trabalho com Python, FastAPI, Flask, Docker, PostgreSQL, N8N, Kubernetes e outras stacks modernas. Ajudo empresas a transformar ideias em soluções práticas e escaláveis.',
       projectsButton: 'Ver Meus Projetos',
-      downloadCv: 'Download CV'
+      downloadCv: 'Ver Currículo Completo'
     },
     about: {
       title: 'Sobre Mim',
@@ -65,7 +67,8 @@ const translations = {
       title: 'Meus Projetos',
       tagline: 'Soluções práticas e escaláveis que transformam ideias em resultados reais',
       code: 'Código',
-      demo: 'Demo'
+      demo: 'Demo',
+      moreInfo: 'Saiba Mais'
     },
     testimonials: {
       title: 'O que dizem sobre meu trabalho',
@@ -76,16 +79,20 @@ const translations = {
       title: 'Vamos Conversar',
       tagline: 'Tem um projeto em mente? Vamos transformar sua ideia em realidade',
       getInTouch: 'Entre em Contato',
-      info:
-        'Estou sempre aberto para discutir novos projetos, ideias criativas ou oportunidades de fazer parte da sua equipe.',
+      info: 'Estou sempre aberto para discutir novos projetos, ideias criativas ou oportunidades de fazer parte da sua equipe.',
       name: 'Nome',
       email: 'Email',
+      phone: 'Telefone',
+      phonePlaceholder: 'Seu número de telefone',
       message: 'Mensagem',
       namePlaceholder: 'Seu nome completo',
       emailPlaceholder: 'seu@email.com',
       messagePlaceholder: 'Conte-me sobre seu projeto ou dúvida...',
       send: 'Enviar Mensagem',
-      successAlert: 'Mensagem enviada com sucesso! Retornarei em breve.'
+      successAlert: 'Mensagem enviada com sucesso! Retornarei em breve.',
+      follow: 'Siga-me nas redes sociais',
+      successTitle: "Mensagem enviada!",
+      successText: "Obrigado por entrar em contato. Em breve retornaremos."
     },
     footer: {
       tagline: 'Transformando ideias em soluções tecnológicas práticas e escaláveis',
@@ -94,7 +101,8 @@ const translations = {
       rights: 'Todos os direitos reservados.',
       specialist: 'Especialista em IA, APIs & Automação',
       available: 'Disponível para novos projetos'
-    }
+    },
+    cv: cv_pt
   },
   en: {
     header: {
@@ -113,7 +121,7 @@ const translations = {
       paragraph:
         "I'm Gabriel Paduch, an expert in API development, process automation, system integration and cloud infrastructure. I work with Python, FastAPI, Flask, Docker, PostgreSQL, N8N, Kubernetes and other modern stacks. I help companies turn ideas into practical, scalable solutions.",
       projectsButton: 'View My Projects',
-      downloadCv: 'Download CV'
+      downloadCv: 'View Full Resume'
     },
     about: {
       title: 'About Me',
@@ -139,7 +147,8 @@ const translations = {
       title: 'My Projects',
       tagline: 'Practical, scalable solutions turning ideas into real results',
       code: 'Code',
-      demo: 'Demo'
+      demo: 'Demo',
+      moreInfo: 'Learn More'
     },
     testimonials: {
       title: 'What people say about my work',
@@ -150,16 +159,20 @@ const translations = {
       title: "Let's Talk",
       tagline: "Have a project in mind? Let's turn your idea into reality",
       getInTouch: 'Get in Touch',
-      info:
-        "I'm always open to discuss new projects, creative ideas or opportunities to join your team.",
+      info: "I'm always open to discuss new projects, creative ideas or opportunities to join your team.",
       name: 'Name',
       email: 'Email',
+      phone: 'Phone',
+      phonePlaceholder: 'Your phone number',
       message: 'Message',
       namePlaceholder: 'Your full name',
       emailPlaceholder: 'your@email.com',
       messagePlaceholder: 'Tell me about your project or question...',
       send: 'Send Message',
-      successAlert: "Message sent successfully! I'll get back to you soon."
+      successAlert: "Message sent successfully! I'll get back to you soon.",
+      follow: 'Follow me on social media',
+      successTitle: "Message Sent!",
+      successText: "Thanks for reaching out. I will get back to you soon."
     },
     footer: {
       tagline: 'Turning ideas into practical, scalable tech solutions',
@@ -168,20 +181,21 @@ const translations = {
       rights: 'All rights reserved.',
       specialist: 'Specialist in AI, APIs & Automation',
       available: 'Available for new projects'
-    }
+    },
+    cv: cv_en
   }
 } as const;
 
 export const useTranslation = () => {
   const { lang } = useLang();
-  const t = (key: string): string => {
+  const t = (key: string): any => {
     const parts = key.split('.');
     let result: any = translations[lang];
     for (const p of parts) {
       result = result?.[p];
       if (result === undefined) return key;
     }
-    return result as string;
+    return result;
   };
   return { t };
 };

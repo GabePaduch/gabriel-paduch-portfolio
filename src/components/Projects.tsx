@@ -11,27 +11,31 @@ const Projects: React.FC = () => {
 
   return (
     <section id="projects" className="bg-dark-950 section-padding px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+      <div className="max-w-7xl mx-auto space-y-20">
+
+        {/* Título da Seção */}
+        <div className="text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             {t('projects.title').split(' ')[0]}{' '}
             <span className="text-primary-500">{t('projects.title').split(' ')[1]}</span>
           </h2>
-          <div className="w-24 h-1 bg-primary-500 mx-auto mb-4"></div>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <div className="w-24 h-1 bg-primary-500 mx-auto mb-5"></div>
+          <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
             {t('projects.tagline')}
           </p>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {/* Grid de Projetos */}
+        <div className="grid gap-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {list.map((project, index) => (
             <div
               key={project.id}
               className="bg-dark-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-primary-500/50 transition-all duration-300 shadow-lg hover:shadow-primary-500/10 flex flex-col"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
+              {/* Imagem */}
               {project.imageUrl && (
-                <div className="h-56 overflow-hidden">
+                <div className="h-52 overflow-hidden">
                   <img
                     src={project.imageUrl}
                     alt={project.title}
@@ -40,17 +44,17 @@ const Projects: React.FC = () => {
                 </div>
               )}
 
-              <div className="p-6 flex-1 flex flex-col justify-between">
+              {/* Conteúdo */}
+              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-3">
-                    {project.title}
-                  </h3>
+                  <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
 
-                  <p className="text-gray-400 mb-4 leading-relaxed text-sm">
+                  <p className="text-gray-400 text-sm leading-relaxed mb-3">
                     {project.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  {/* Tecnologias */}
+                  <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
@@ -62,13 +66,13 @@ const Projects: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Botão Saiba Mais centralizado */}
-                <div className="mt-4 flex justify-center">
+                {/* Botão Saiba Mais */}
+                <div className="mt-3 flex justify-center">
                   <a
                     href="#contact"
-                    className="inline-flex items-center gap-2 text-gray-400 hover:text-primary-500 transition-colors text-sm font-medium"
+                    className="inline-flex items-center gap-2 text-gray-400 hover:text-primary-500 hover:underline transition-colors text-sm font-medium"
                   >
-                    <ExternalLink size={18} />
+                    <ExternalLink size={16} />
                     {t('projects.moreInfo')}
                   </a>
                 </div>
@@ -76,6 +80,7 @@ const Projects: React.FC = () => {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

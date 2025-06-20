@@ -7,45 +7,50 @@ const About: React.FC = () => {
 
   return (
     <section id="about" className="bg-dark-900 section-padding px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+      <div className="max-w-7xl mx-auto space-y-16">
+        
+        {/* Título da Seção */}
+        <div className="text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             {t('about.title').split(' ')[0]}{' '}
             <span className="text-primary-500">{t('about.title').split(' ')[1]}</span>
           </h2>
-          <div className="w-24 h-1 bg-primary-500 mx-auto"></div>
+          <div className="w-24 h-1 bg-primary-500 mx-auto mb-4"></div>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">{t('about.introTagline')}</p>
         </div>
 
-        <div className="grid lg:grid-cols-[3fr_2fr] gap-16 items-start">
-          {/* Texto - Quem sou eu */}
+        {/* Grid Principal */}
+        <div className="grid lg:grid-cols-[3fr_2fr] gap-14 items-start">
+          
+          {/* Sobre Mim */}
           <div className="space-y-8">
-            <h3 className="text-3xl md:text-4xl font-bold text-primary-500 mb-4">
+            <h3 className="text-3xl md:text-4xl font-bold text-primary-500 mb-2">
               {t('about.subtitle')}
             </h3>
-            <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
+
+            <div className="space-y-5 text-gray-300 text-lg leading-relaxed">
               <p>{t('about.p1')}</p>
               <p>{t('about.p2')}</p>
-              <div className="pt-4">
-                <blockquote className="text-primary-400 font-medium text-xl italic">
-                  {t('about.quote')}
-                </blockquote>
-              </div>
+              <blockquote className="text-primary-400 font-medium text-xl italic border-l-4 border-primary-500 pl-4 mt-4">
+                {t('about.quote')}
+              </blockquote>
             </div>
           </div>
 
           {/* Skills Técnicas */}
-          <div>
-            <h3 className="text-2xl font-semibold text-white mb-6">
+          <div className="space-y-6">
+            <h3 className="text-2xl font-semibold text-white mb-2">
               {t('about.skillsTitle')}
             </h3>
+
             <div className="grid sm:grid-cols-2 gap-4">
               {skills.map((skill, index) => (
                 <div
                   key={skill.category}
-                  className="bg-dark-800 p-4 rounded-lg border border-gray-700 hover:border-primary-500/50 transition-all duration-300"
+                  className="bg-dark-800 p-4 rounded-lg border border-gray-700 hover:border-primary-500/50 transition-all duration-300 space-y-2"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <h4 className="text-primary-500 font-semibold mb-2 text-base">
+                  <h4 className="text-primary-500 font-semibold text-sm uppercase tracking-wide mb-1">
                     {t(`skills.${skill.category}`)}
                   </h4>
                   <div className="flex flex-wrap gap-2">
@@ -62,6 +67,7 @@ const About: React.FC = () => {
               ))}
             </div>
           </div>
+
         </div>
       </div>
     </section>

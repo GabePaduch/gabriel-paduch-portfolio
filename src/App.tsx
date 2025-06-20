@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -8,6 +9,20 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const sectionId = location.state.scrollTo;
+      const target = document.getElementById(sectionId);
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }, 100); // Pequeno delay para garantir que o elemento exista no DOM
+      }
+    }
+  }, [location]);
+
   return (
     <div className="min-h-screen bg-dark-950">
       <Header />

@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
 import { useLang, useTranslation } from '../i18n';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { lang, setLang } = useLang();
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,12 +20,20 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleNavClick = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: sectionId } });
+      setIsMenuOpen(false);
+    } else {
+      setTimeout(() => {
+        const target = document.getElementById(sectionId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 50);
       setIsMenuOpen(false);
     }
+    setIsMenuOpen(false);
   };
 
   return (
@@ -43,19 +54,19 @@ const Header: React.FC = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-primary-500 transition-colors">
+            <button onClick={() => handleNavClick('home')} className="text-gray-300 hover:text-primary-500 transition-colors">
               {t('header.home')}
             </button>
-            <button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-primary-500 transition-colors">
+            <button onClick={() => handleNavClick('about')} className="text-gray-300 hover:text-primary-500 transition-colors">
               {t('header.about')}
             </button>
-            <button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-primary-500 transition-colors">
+            <button onClick={() => handleNavClick('projects')} className="text-gray-300 hover:text-primary-500 transition-colors">
               {t('header.projects')}
             </button>
-            <button onClick={() => scrollToSection('testimonials')} className="text-gray-300 hover:text-primary-500 transition-colors">
+            <button onClick={() => handleNavClick('testimonials')} className="text-gray-300 hover:text-primary-500 transition-colors">
               {t('header.testimonials')}
             </button>
-            <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-primary-500 transition-colors">
+            <button onClick={() => handleNavClick('contact')} className="text-gray-300 hover:text-primary-500 transition-colors">
               {t('header.contact')}
             </button>
             <button
@@ -105,19 +116,19 @@ const Header: React.FC = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-dark-900/95 backdrop-blur-sm rounded-lg mt-2 p-4">
             <div className="flex flex-col space-y-4">
-              <button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">
+              <button onClick={() => handleNavClick('home')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">
                 {t('header.home')}
               </button>
-              <button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">
+              <button onClick={() => handleNavClick('about')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">
                 {t('header.about')}
               </button>
-              <button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">
+              <button onClick={() => handleNavClick('projects')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">
                 {t('header.projects')}
               </button>
-              <button onClick={() => scrollToSection('testimonials')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">
+              <button onClick={() => handleNavClick('testimonials')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">
                 {t('header.testimonials')}
               </button>
-              <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">
+              <button onClick={() => handleNavClick('contact')} className="text-gray-300 hover:text-primary-500 transition-colors text-left">
                 {t('header.contact')}
               </button>
               <button

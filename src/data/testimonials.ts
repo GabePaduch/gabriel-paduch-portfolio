@@ -11,12 +11,12 @@ export const testimonials: Testimonial[] = [
     id: '2',
     client: 'RTI Cursos',
     company: 'RTI Cursos',
-    feedback: 'Com o suporte do Gabriel, conseguimos implementar soluções de IA aplicadas aos cursos. Além de professor, ele virou referência técnica pra gente.'
+    feedback: 'Com o suporte do Gabriel, conseguimos implementar soluções de IA nos cursos. Além de professor, ele se tornou nossa referência técnica.'
   },
   {
     id: '3',
     client: 'Cliente Next Cloud (API Evolution)',
     company: 'Next Cloud',
-    feedback: 'Já usei outras hospedagens de API, mas sempre tinha instabilidade. Desde que migrei pra Next Develop, meu WhatsApp não cai mais. Produto simples e que funciona.'
+    feedback: 'Já usei outras hospedagens de API, mas sempre enfrentava instabilidade. Desde que migrei para a Next Develop, meu WhatsApp não cai mais. Simples e funcional.'
   }
 ];
